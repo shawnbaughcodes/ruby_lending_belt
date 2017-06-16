@@ -1,0 +1,67 @@
+<% if @current_user.role == "Lender" %>
+<div class="lender">
+
+    <h3>Name, <%=@current_user.name%></h3>
+    <h3>Account Balance, <%=@current_user.money%></h3>
+    <hr>
+    <h4>People Who Need a Loan:</h4>
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Money Needed For</th>
+            <th>Description</th>
+            <th>Amount Needed</th>
+            <th>Amount Raised</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <%@borrower.each do |br|%>
+            <td><%=br.name%></td>
+            <td><%=br.reason%></td>
+            <td><%=br.description%></td>
+            <td><%=br.amount_needed%></td>
+            <td><%=br.amount_raised%></td>
+            <td><form class="lend" action="/lend/<%=br.id%>" method="post">
+                <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+                <input type="number" name="money[amount]" value="">
+                <input type="submit" value="Lend">
+            </form></td>
+            <%end%>
+        </tbody>
+    </table>
+    <h4>People Who You Lent Money To:</h4>
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Mondey Needed For</th>
+            <th>Description</th>
+            <th>Amount Needed</th>
+            <th>Amount Raised</th>
+            <th>Amount Lent</th>
+        </thead>
+        <tbody>
+            <!-- Loop Start -->
+            <td></td>
+            <!-- End -->
+        </tbody>
+    </table>
+</div>
+<%else%>
+<div class="borrower">
+    <h2>Who I've Borrowed From</h2>
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Amount</th>
+        </thead>
+        <tbody>
+            <!-- Loop -->
+            <td><%=%></td>
+            <td><%=%></td>
+            <td><%=%></td>
+            <!-- Loop End -->
+        </tbody>
+    </table>
+</div>
+<%end%>

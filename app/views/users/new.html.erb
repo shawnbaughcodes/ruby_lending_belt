@@ -1,0 +1,48 @@
+<h1>Register</h1>
+<h3>Lender</h3>
+<form class="lender" action="/users" method="post">
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+    Name:
+    <input type="text" name="user[name]">
+    Email:
+    <input type="text" name="user[email]">
+    Role:
+    <input type="text" name="user[role]" value="Lender">
+    Password:
+    <input type="password" name="user[password]">
+    Password Confirmation:
+    <input type="password" name="user[password_confirmation]">
+    Money:
+    <input type="number" name="user[money]">
+    <input type="submit" value="Register">
+</form>
+<h3>Borrower</h3>
+<form class="borrower" action="/users" method="post">
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+    Name:
+    <input type="text" name="user[name]">
+    Email:
+    <input type="text" name="user[email]">
+    Role:
+    <input type="text" name="user[role]" value="Borrower">
+    Password:
+    <input type="password" name="user[password]">
+    Password Confirmation:
+    <input type="password" name="user[password_confirmation]">
+    Amount:
+    <input type="number" name="user[amount_needed]">
+    Need Money For:
+    <input type="text" name="user[reason]">
+    Description:
+    <textarea name="user[description]" rows="8" cols="80"></textarea>
+    <input type="submit" value="Register">
+</form>
+<h1>Login</h1>
+<form class="" action="/sessions" method="post">
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+    Email:
+    <input type="text" name="user[email]">
+    Password:
+    <input type="password" name="user[password]">
+    <input type="submit" value="Login">
+</form>
